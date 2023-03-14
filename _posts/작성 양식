@@ -1,0 +1,26 @@
+
+ /- 노션 등록 및 링크 등록 방법 -/
+**[공지]** [링크](https://google.com)
+ {: .notice--danger}
+
+
+ /- 여러줄에 걸쳐서 노션 할당 -/
+ <div class="notice--warning">
+ <h4>공지사항 입니다.</h4>
+ <ul>
+    <li>공지사항 테스트1</li>
+ </ul>
+ </div>
+
+ 
+/- 버튼 삽입 방법 -/
+[버튼](https://google.com){: .btn .btn--danger}
+
+ 
+ /- 유튜브 링크 등록 방법 -/
+{% include video id="유튜브 링크 뒷부분" provider="youtube" %}
+
+
+ /- 노션 쪽 유틸리티 방법 사이트 여러가지 색 변환 가능 -/
+ https://mmistakes.github.io/minimal-mistakes/docs/utility-classes/#notices
+

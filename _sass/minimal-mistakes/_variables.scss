@@ -14,9 +14,11 @@ $indent-var: 1.3em !default;
 
 /* system typefaces */
 $serif: Georgia, Times, serif !default;
-$sans-serif: -apple-system, BlinkMacSystemFont, "Roboto", "Segoe UI",
+$sans-serif: -apple-system, BlinkMacSystemFont,"Cafe24SsurroundAir", "Roboto", "Segoe UI",
   "Helvetica Neue", "Lucida Grande", Arial, sans-serif !default;
 $monospace: Monaco, Consolas, "Lucida Console", monospace !default;
+$post-font: "NIXGONM-Vb" !default; /* 포스트 내용 폰트 */
+$header-font: "NeoDunggeunmoPro-Regular" !default; /* 헤더 폰트 */
 
 /* sans serif typefaces */
 $sans-serif-narrow: $sans-serif !default;
@@ -29,8 +31,9 @@ $bodoni: "Bodoni MT", serif !default;
 $calisto: "Calisto MT", serif !default;
 $garamond: Garamond, serif !default;
 
+
 $global-font-family: $sans-serif !default;
-$header-font-family: $sans-serif !default;
+$header-font-family: $header-font !default;
 $caption-font-family: $serif !default;
 
 /* type scale */

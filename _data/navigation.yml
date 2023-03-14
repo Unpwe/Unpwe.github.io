@@ -2,6 +2,17 @@
 main:
   - title: "Home"
     url: "https://preadim.github.io"
+  - title: "Search"
+    url: /search/
+
+#  docs:
+#    - title: "대목차"
+#    children:
+#      - title: "ddd"
+#        url: /categories/Cpp
+#      - title: "Tag"
+#        url: /tags/Cpp
+  
   # - title: "About"
   #   url: https://mmistakes.github.io/minimal-mistakes/about/
   # - title: "Sample Posts"
