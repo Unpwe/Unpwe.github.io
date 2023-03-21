@@ -1,4 +1,8 @@
 
+ bundle exec jekyll serve
+ 
+ 
+ 
  /- 노션 등록 및 링크 등록 방법 -/
 **[공지]** [링크](https://google.com)
  {: .notice--danger}
@@ -23,4 +27,6 @@
 
  /- 노션 쪽 유틸리티 방법 사이트 여러가지 색 변환 가능 -/
  https://mmistakes.github.io/minimal-mistakes/docs/utility-classes/#notices
+
+
 
