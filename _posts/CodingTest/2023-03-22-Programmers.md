@@ -1,0 +1,134 @@
+---
+title: "[프로그래머스] LV.2 뒤에있는 큰 수 찾기"
+layout: single
+categories: Cpp
+author_profile: true
+sidebar_main: true
+tag: Cpp, CodingTest
+toc: true
+---
+
+CodingTest
+{: .notice--warning}
+
+## 문제
+
+![Programmer](https://user-images.githubusercontent.com/69719507/226915571-379f7984-09d9-47f3-a663-5372476fc83f.png)
+
+
+
+이 문제는 정수로 이루어진 배열 numbers에서 자신보다 뒤에있는 숫자중에서 가장 가까우면서 자기보다 큰 수를 골라내서 뽑아내야하는 문제이다.   
+
+또한 그런 숫자가 없는 경우는 -1를 출력해야하는 문제이다.
+
+
+***
+> numbers : [1, 2, 3, 4, 5]    
+> answer : [2, 3, 4, 5, -1]
+
+> numbers : [5, 4, 3, 2, 1]    
+> answer : [-1, -1, -1, -1, -1]
+
+> numbers : [3, 3, 3, 3, 3]   
+> answer : [-1, -1, -1, -1, -1]
+
+***
+
+
+## 해결 방식
+
+처음에는 인덱스들을 stack에 차례차례 넣어두면서 자신보다 뒤에 숫자가 나오면 stack에 있는 값을 빼서 값을 할당하는 방식으로 문제를 풀어보려 했으나,   
+
+어떤 경우던 간에 가장 마지막값이 -1 인 점, 모든 숫자는 결국 자신보다 뒤에 숫자에서 판단 한다는 점을 볼때 결국 이 문제의 각 배열 요소들은 자신보다 뒤에 숫자의 값을 판단하면 되는 것 이므로 다이나믹 방식이 더 어울린다고 생각했다.
+
+때문에, stack을 따로 할당하지않고 다이나믹 배열을 사용하기 위해 vector형 배열을 만들어 값을 저장하고, int i은 뒤에서 부터 int j는 i + 1 부터 numbers의 끝까지 도는 방식으로 풀어보았다.
+
+***
+
+
+
+## 코드
+
+```cpp
+#include <string>
+#include <vector>
+
+using namespace std;
+
+vector<int> solution(vector<int> numbers) {
+    vector<int> answer(numbers.size(), -1);   
+
+    for(int i = numbers.size() - 2; i >= 0 ; i--)
+    {
+        for(int j = i + 1; j < numbers.size(); j++)
+        {
+            if(numbers[i] < numbers[j])
+            {
+                answer[i] = numbers[j]; 
+                break;
+            }
+            else if(numbers[i] >= numbers[j])
+            {
+                if(answer[j] == -1)
+                {
+                    answer[i] = -1;
+                    break;
+                }     
+                else if(numbers[i] < answer[j])
+                {
+                    answer[i] = answer[j];
+                    break;
+                }
+            }
+        }
+    }  
+    return answer;
+}
+```
+
+***
+**다이나믹 배열**인 [answer] 배열의 마지막은 반드시 -1 일 것이고,  answer 에는 결국 이 문제의 답인 각각의 인덱스들이 가져야하는 값이 저장되어 있다.
+
+> **빠르게 자신보다 값이 큰 경우를 찾은 경우**
+
+* 이중 for문은 i는 뒤에서부터 돌고 j는 i + 1부터 배열의 끝까지 돌면서 순회한다.   
+numbers[i]는 numbers[j]와 비교했을때, 자신이 작다는 것은 결국 numbers[j]가 자기보다 가장 가까우면서 큰 수이기때문에 그것이 답이므로 더 이상 순회 할 필요가없다.   
+그렇기에 다이나믹 배열에 저장해주고 break를 해준다.
+
+
+
+> **뒤에있는 숫자가 자신보다 작거나 같은 값이기 때문에 다이나믹 배열을 확인 해야하는 경우**
+
+* 이 풀이 방식의 핵심이다.  
+지금 기준점이 되는 numbers[i]가 크다는 것은 결국 이 뒤에 숫자들 중 numbers[i]가 가져야 할 값을 가진 누군가가 있다는 뜻이다.   
+* numbers[i]보다 작은데도 answer[j] 값이 -1이라는 것은 애초에 이 뒤에는 numbers[i]보다 큰 값이 존재하지 않는 다는 뜻 이다.  
+ 때문에 -1을 저장하고 break 한다.
+* answer[j]가 numbers[i]보다 큰 경우 이 값이 곧 numbers[i]의 값이므로 다이나믹 배열 i번째에 저장해두고 break 한다.
+
+> **아무런 해당이 없으면 다시 for으로 다음 인덱스를 비교한다.**
+
+ * 이경우에는 answer[j]가 numbers[i]보다 작거나 같은 경우이다.
+
+
+이러한 방식으로 풀면 stack없이 오직 배열 하나만으로도 값을 도출 해낼수 있다.
+
+ ***
+
+
+
+
+# 해결 
+
+### stack을 이용해서 푼 경우의 결과
+
+![Programmer](https://user-images.githubusercontent.com/69719507/226919865-cade0499-25b0-4224-9877-173f06002d0c.png)
+
+
+
+### 다이나믹 배열을 이용해서 풀어낸 결과
+![Programmer](https://user-images.githubusercontent.com/69719507/226921338-9783b526-6458-44ef-9819-e9249965e1cb.png)
+
+
+다이나믹으로 사용해서 풀어낸 결과가 stack으로 인덱스를 하나하나 저장해두고 빼오는 방식보다 훨씬 빠르다는 결과를 볼 수 있다.
+
+
