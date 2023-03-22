@@ -1,5 +1,5 @@
 ---
-title: "[프로그래머스] LV.2 뒤에있는 큰 수 찾기"
+title: "[프로그래머스] [LV.2] 뒤에있는 큰 수 찾기"
 layout: single
 categories: Cpp
 author_profile: true
@@ -100,9 +100,11 @@ numbers[i]는 numbers[j]와 비교했을때, 자신이 작다는 것은 결국 n
 > **뒤에있는 숫자가 자신보다 작거나 같은 값이기 때문에 다이나믹 배열을 확인 해야하는 경우**
 
 * 이 풀이 방식의 핵심이다.  
-지금 기준점이 되는 numbers[i]가 크다는 것은 결국 이 뒤에 숫자들 중 numbers[i]가 가져야 할 값을 가진 누군가가 있다는 뜻이다.   
+지금 기준점이 되는 numbers[i]가 크다는 것은 결국 이 뒤에 숫자들 중 numbers[i]가 가져야 할 값을 가진 누군가가 있다는 뜻이다.  
+
 * numbers[i]보다 작은데도 answer[j] 값이 -1이라는 것은 애초에 이 뒤에는 numbers[i]보다 큰 값이 존재하지 않는 다는 뜻 이다.  
  때문에 -1을 저장하고 break 한다.
+
 * answer[j]가 numbers[i]보다 큰 경우 이 값이 곧 numbers[i]의 값이므로 다이나믹 배열 i번째에 저장해두고 break 한다.
 
 > **아무런 해당이 없으면 다시 for으로 다음 인덱스를 비교한다.**
@@ -117,15 +119,19 @@ numbers[i]는 numbers[j]와 비교했을때, 자신이 작다는 것은 결국 n
 
 
 
-# 해결 
+## 해결 
 
 ### stack을 이용해서 푼 경우의 결과
+
+***
 
 ![Programmer](https://user-images.githubusercontent.com/69719507/226919865-cade0499-25b0-4224-9877-173f06002d0c.png)
 
 
 
 ### 다이나믹 배열을 이용해서 풀어낸 결과
+
+***
 ![Programmer](https://user-images.githubusercontent.com/69719507/226921338-9783b526-6458-44ef-9819-e9249965e1cb.png)
 
 
