@@ -1,7 +1,7 @@
 ---
 title: "[프로그래머스] [LV.2] 광물 캐기"
 layout: single
-categories: cpp
+categories: Cpp
 author_profile: true
 sidebar_main: true
 tag: Cpp, CodingTest
