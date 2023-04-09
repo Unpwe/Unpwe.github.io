@@ -1,0 +1,194 @@
+---
+title: "[프로그래머스] [LV.2] 과제 진행하기"
+layout: single
+categories: Cpp
+author_profile: true
+sidebar_main: true
+tag: Cpp, CodingTest
+toc: true
+---
+
+
+
+CodingTest
+{: .notice--warning}
+
+
+
+## 문제
+
+![image](https://user-images.githubusercontent.com/69719507/230786443-c5cac50a-112f-4584-9d9b-da49f5f451fe.png)
+
+
+이 문제는 과제리스트를 받고 그 과제를 시간에따라 진행하면서 다음 과제 할시간이 되면 지금까지 하던 과제는 하던 곳까지 마무리 한 후 잠시 보류하고 새 과제를하다가 다음 과제까지 시간이 남으면 보류해둔 과제를 다시 한다고 가정할때 그 순서를 출력하는 문제이다.
+
+
+
+<br>
+
+
+
+## 해결방식
+
+
+이 문제에서 함정은 문제를 잘 읽어보면 알수 있지만 미뤄놨던 과제를 **[먼저 미룬과제부터가 아니라 가장 최근에 미룬 것부터 진행한다.]** 이다.    
+
+당연하게도 먼저 미룬것부터 진행하는 줄 알았지만 최근것부터 진행하기 때문에 큐가아니라 스택을 활용 해야했다.
+
+먼저 00:00 ~ 23:59 시간들을 분으로만 계산해서 해당 값으로 priority_queue로 정렬을 해주어서 하나씩 빼오는 방식으로 채택했고 미룬 과제는 스택에 넣어두고 특정 조건에 빼오는 형식으로 해결했다.   
+
+과제를 미루는 조건은 새로운 과제를 할 시간이 되었을때 이므로 이건 쉽지만, 미룬 과제를 하는 조건은 새로운 과제가 아직 시간이 되지않았을때 그 잠깐의 자투리 시간동안이라도 조금이라도 해두어야 한다.  
+
+각 과제들은 걸리는 시간들이 존재하기때문에 과제를 할때마다 걸린 시간들을 빼주어야한다.   
+
+그렇기때문에 **[현재 시각]**이 가장 중요해보여서 이것에 초점을 두어서 문제를 해결해보았다.
+
+
+<br>
+
+
+
+## 코드
+
+```cpp
+#include <string>
+#include <vector>
+#include <queue>
+#include <stack>
+
+using namespace std;
+
+
+struct Node
+{
+    string Name;
+    int Time;
+    int PlayTime;
+    
+    Node(string a, string b, string c)
+    {
+        Name = a;
+        int Hour = (CharToInt(b[0]) * 10 + CharToInt(b[1])) * 60;
+        Time = Hour + (CharToInt(b[3]) * 10 + CharToInt(b[4]));
+        PlayTime = stoi(c);
+    }
+    
+    Node(string a, int b, int c)
+    {
+        Name = a;
+        Time = b;
+        PlayTime = c;
+    }
+    
+    int CharToInt(char c)
+    {
+        return c - '0';
+    }
+    
+    bool operator< (const Node& Other) const
+    {
+        return Time > Other.Time;
+    }
+};
+
+vector<string> solution(vector<vector<string>> plans) {
+    vector<string> answer;
+    
+    priority_queue<Node> pq;
+    stack<Node> st;
+    
+    for(int i = 0; i < plans.size(); i++)
+        pq.push(Node(plans[i][0], plans[i][1], plans[i][2]));
+    
+    int CurrentTime = 0;
+    while(!pq.empty())
+    {
+        Node node = pq.top();
+        /* 미룬과제가 존재 할 경우 */
+        if(!st.empty())
+        {
+            Node STnode = st.top();
+            st.pop(); // 빼와야하는 과제는 현재시각을 기준으로 계산해야한다.
+            if(node.Time > CurrentTime)
+            {
+                /* 미룬 과제를 꺼내온다. */
+                pq.push(Node(STnode.Name, CurrentTime, STnode.PlayTime));
+                continue;
+            }
+            else
+                st.push(Node(STnode.Name, CurrentTime, STnode.PlayTime)); // 현재 시각 새롭게 셋업.
+        }
+        
+        pq.pop();        
+        Node NextNode = pq.top();    
+        CurrentTime = node.Time + node.PlayTime;
+        
+        if(CurrentTime <= NextNode.Time)
+            answer.push_back(node.Name);           
+        else
+        {
+            CurrentTime = NextNode.Time;
+            st.push(Node(node.Name, node.Time, node.PlayTime - (NextNode.Time - node.Time)));
+        }
+    }
+    
+    while(!st.empty())
+    {
+        Node STnode = st.top();
+        st.pop();
+        answer.push_back(STnode.Name);
+    }
+    
+    return answer;
+}
+
+```
+
+
+***
+
+
+
+
+
+
+> 이 문제는 현재시각만 잘 구한다면 쉽게 구현이 가능했다.
+
+현재시각을 구한다고 그렇다고 무턱대고 for을 분단위로 돌려서 계산하는 방식으로 풀지 않아도, 알려주는 조건들이 많기 때문에 덧셈 뺄셈으로 충분히 구할 수 있었다.
+
+<br>
+
+* > 현재 과제에서 과제가 걸리는 시간을 더했을때 다음 과제의 시간보다 **[아래]** 인 경우 
+
+    -> 현재 과제시간 + 과제가 걸리는시간 = 현재 시각
+
+* > 현재 과제에서 과제가 걸리는 시간을 더했을때 다음 과제의 시간보다 **[큰]** 경우
+
+    -> 다음 과제 시간 = 현재 시각 + (과제가 걸리는시간 빼주고 미룬 과제 스택에 넣기)
+
+이 두가지 경우로 이미 현재 시각을 구하는건 끝났다.   
+
+그 후엔 계속 정렬되어있는 과제들을 하나씩 빼오면 된다.  
+또한 미룬과제들의 경우 그 차례가 된다면 현재시각을 새롭게 셋업 해준뒤에 priority_queue에 넣어 주기 때문에,      
+당연히 우선순위 큐 맨 앞단으로 오게될 것이고 그 후에는 위와 똑같이 현재 과제 시간 + 과제가 걸리는 시간을 더해주고 계산하는 과정으로 굳이 다른 연산없이도 일관성있게 priority_queue에만 의존하여 답을 도출 할수 있다.
+
+
+중요한 것은 미룬과제도 결국 원래 그 과제의 시간이 아닌 **[새로운 현재 시간]** 을 기준으로 아직 남아있는 **[과제가 걸리는 시간]** 을 더해서 계산해야 하는 점이다.
+
+이 방식으로 계산하면 미룬과제를 가장 최근에 미룬 과제부터 하는 방식이 아닌 먼저 미뤄놨던 과제들부터 진행하는 방식이라도 미룬과제들을 저장하는 자료구조를 스택에서 큐로만 바꿔준다면 충분히 구현이 가능하다고 생각된다.    
+**(가장 앞단에 있는 미룬과제를 가져와서 현재시각을 셋업 해주기때문)**
+
+
+
+<br>
+
+
+
+## 해결
+
+
+![image](https://user-images.githubusercontent.com/69719507/230788494-6eea6fcc-1422-4f53-bbe8-4f209ebbac50.png)
+
+
+
+***
