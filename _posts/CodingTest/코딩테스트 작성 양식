@@ -8,6 +8,8 @@ tag: Cpp, CodingTest
 toc: true
 ---
 
+bundle exec jekyll serve
+
 CodingTest
 {: .notice--warning}
 
