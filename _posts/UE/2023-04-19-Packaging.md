@@ -46,7 +46,7 @@ published: true
 <br>
 
 
-> * [구글 드라이브 링크](https://drive.google.com/file/d/1ol3-jgK_FeMGNSsY4TUV2kOTsZ6RFq2R/view?usp=sharing)
+> * [구글 드라이브 링크](https://drive.google.com/file/d/1ol3-jgK_FeMGNSsY4TUV2kOTsZ6RFq2R/view)
 
 
 <br>
