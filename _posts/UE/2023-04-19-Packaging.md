@@ -1,18 +1,18 @@
 ---
 title: "포트폴리오 [ProjectH]"
 layout: single
-categories: ETC
+categories: ProjectH
 author_profile: true
 sidebar_main: true
-tag: ETC
+tag: ProjectH
 toc: true
 published: true
 ---
 
 
 
-ETC
-{: .notice--success}
+게임 개발
+{: .notice--danger}
 
 
 ## 제작
@@ -84,6 +84,9 @@ ETC
 
 
 ***
+
+<br>
+
 
 * 난이도를 쉽게 조정해두었습니다.
 
