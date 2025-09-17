@@ -19,9 +19,9 @@ locale                   : "ko-KR"
 title                    : "Master Piece"
 title_separator          : "|"
 subtitle                 : # site tagline that appears below site title in masthead
-name                     : "PREADIM"
+name                     : "Unpwe"
 description              : ""
-url                      : "https://preadim.github.io"
+url                      : "https://Unpwe.github.io"
 baseurl                  : # the subpath of your site, e.g. "/blog"
 repository               : # GitHub username/repo-name e.g. "mmistakes/minimal-mistakes"
 teaser                   : # path of fallback teaser image, e.g. "/assets/images/500x300.png"
@@ -33,7 +33,7 @@ words_per_minute         : 200
 comments:
   provider               : "disqus" # "disqus", "discourse", "facebook", "staticman", "staticman_v2", "utterances", "giscus", "custom"
   disqus:
-    shortname            : "PREADIM"
+    shortname            : "Unpwe"
   discourse:
     server               : # https://meta.discourse.org/t/embedding-discourse-comments-via-javascript/31963 , e.g.: meta.discourse.org
   facebook:
@@ -105,28 +105,28 @@ analytics:
 
 # Site Author
 author:
-  name             : "PREADIM"
+  name             : "Unpwe"
   avatar           : "/assets/images/Logo/MainLogo.png"
   bio              : "---<br>***있는 힘껏 날아올라***<br>***아름답게 피어나라***<br>---<br>"
   location         : "South Korea"
   #email            : 
   links:
-   # - label: "ssonz1213@gmail.com"
+   # - label: "lelernrn@gmail.com"
    #   icon: "fas fa-fw fa-envelope-square"
     #  url: ""
-   # - label: "gmaka1213gs@naver.com"
+   # - label: "lelernrn@gmail.com"
     #  icon: "fas fa-fw fa-envelope-square"
     #  url: ""
     - label: "GitHub"
       icon: "fab fa-fw fa-github"
-      url: "https://github.com/PREADIM"
+      url: "https://github.com/Unpwe"
 
 # Site Footer
 footer:
   links:
     - label: "GitHub"
       icon: "fab fa-fw fa-github"
-      url: "https://github.com/PREADIM"
+      url: "https://github.com/Unpwe"
 
 # Reading Files
 include:
