@@ -16,7 +16,7 @@ minimal_mistakes_skin    :  "contrast" # "default" "air", "aqua", "contrast", "d
 
 # Site Settings
 locale                   : "ko-KR"
-title                    : "Master Piece"
+title                    : "게임처럼 레벨업 하기"
 title_separator          : "|"
 subtitle                 : # site tagline that appears below site title in masthead
 name                     : "Unpwe"
@@ -109,17 +109,18 @@ author:
   avatar           : "/assets/images/Logo/MainLogo.png"
   bio              : "---<br>***있는 힘껏 날아올라***<br>***아름답게 피어나라***<br>---<br>"
   location         : "South Korea"
-  #email            : 
+  email            : "lelernrn@gmail.com"
   links:
-   # - label: "lelernrn@gmail.com"
-   #   icon: "fas fa-fw fa-envelope-square"
-    #  url: ""
+  #  - label: "lelernrn@gmail.com"
+  #    icon: "fas fa-fw fa-envelope-square"
+  #    url: ""
+   - label: "GitHub"
+     icon: "fab fa-fw fa-github"
+     url: "https://github.com/Unpwe"
    # - label: "lelernrn@gmail.com"
     #  icon: "fas fa-fw fa-envelope-square"
     #  url: ""
-    - label: "GitHub"
-      icon: "fab fa-fw fa-github"
-      url: "https://github.com/Unpwe"
+    
 
 # Site Footer
 footer:
@@ -127,6 +128,9 @@ footer:
     - label: "GitHub"
       icon: "fab fa-fw fa-github"
       url: "https://github.com/Unpwe"
+    - label: "포트폴리오"
+      icon: "fab fa-fw fa-github"
+      url: "https://lelernrn.notion.site/264ca40c4696800eae9bc305e5c47950?source=copy_link"
 
 # Reading Files
 include:

@@ -1,9 +1,11 @@
 # main links
 main:
   - title: "Home"
-    url: "https://preadim.github.io"
+    url: "https://Unpwe.github.io"
   - title: "Search"
     url: /search/
+  - title: "Category"
+    url: /categories/
 
 #  docs:
 #    - title: "대목차"
