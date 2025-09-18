@@ -15,8 +15,8 @@
             <ul>
                 <!--category[1].size 로 해당 카테고리를 가진 글의 개수 표시--> 
                 {% for category in site.categories %}
-                    {% if category[0] == "Portfolio" %}
-                        <li><a href="/categories/Portfolio" class="">포트폴리오 ({{category[1].size}})</a></li>
+                    {% if category[0] == "UNREAL ENGINE" %}
+                        <li><a href="/categories/UNREAL ENGINE" class="">UE5 ({{category[1].size}})</a></li>
                     {% endif %}
                 {% endfor %}
             </ul>

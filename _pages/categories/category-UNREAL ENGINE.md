@@ -1,10 +1,10 @@
 ---
-title: "포트폴리오"
+title: "UNREAL ENGINE"
 layout: archive
-permalink: /categories/Portfolio
+permalink: /categories/UNREAL ENGINE
 author_profile: true
 sidebar_main: true
 ---
 
-{% assign posts = site.categories.Portfolio %}
+{% assign posts = site.categories.UNREAL ENGINE %}
 {% for post in posts %} {% include archive-single.html type=page.entries_layout %} {% endfor %}
