@@ -109,17 +109,17 @@ author:
   avatar           : "/assets/images/Logo/MainLogo.png"
   bio              : "***있는 힘껏 날아올라***<br>***아름답게 피어나라***"
   location         : "South Korea"
-  email            : "lelernrn@gmail.com"
+  #email            :
   links:
    - label: "포트폴리오"
-     icon: "fab fa-fw fa-notion"
+     icon: "fa-brands fa-notion"
      url: "https://lelernrn.notion.site/264ca40c4696800eae9bc305e5c47950?source=copy_link"
    - label: "GitHub"
      icon: "fab fa-fw fa-github"
      url: "https://github.com/Unpwe"
-   # - label: "lelernrn@gmail.com"
-    #  icon: "fas fa-fw fa-envelope-square"
-    #  url: ""
+   - label: "lelernrn@gmail.com"
+     icon: "fas fa-fw fa-envelope-square"
+     url: ""
     
 
 # Site Footer
