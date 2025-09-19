@@ -112,7 +112,7 @@ author:
   #email            :
   links:
    - label: "포트폴리오"
-     icon: "fa-brands fa-notion"
+     icon: "fab fa-fw fa-notion"
      url: "https://lelernrn.notion.site/264ca40c4696800eae9bc305e5c47950?source=copy_link"
    - label: "GitHub"
      icon: "fab fa-fw fa-github"
