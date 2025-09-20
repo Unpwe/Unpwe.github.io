@@ -1,7 +1,7 @@
 ---
 title: "tags"
 layout: tags
-permalink: /tags/Game
+permalink: /tags/CodingTest/CodingTest
 author_profile: true
 sidebar_main: true
 ---
