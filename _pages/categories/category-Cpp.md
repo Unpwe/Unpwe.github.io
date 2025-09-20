@@ -4,6 +4,7 @@ layout: archive
 permalink: /categories/Cpp
 author_profile: true
 sidebar_main: true
+toc: true
 ---
 
 {% assign posts = site.categories.Cpp %}

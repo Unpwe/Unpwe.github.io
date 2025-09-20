@@ -5,9 +5,9 @@ main:
   - title: "Search"
     url: /search/
   - title: "Category"
-    url: /_pages/categories/
+    url: /categories/
   - title: "Tag"
-    url: /_pages/tags/
+    url: /tags/
 
 #  docs:
 #    - title: "대목차"

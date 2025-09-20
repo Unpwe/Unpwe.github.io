@@ -1,5 +1,4 @@
-
- bundle exec jekyll serve
+bundle exec jekyll serve
 
 아이콘 사이트
  https://fontawesome.com/ 

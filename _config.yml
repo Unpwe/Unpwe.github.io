@@ -109,18 +109,18 @@ author:
   avatar           : "/assets/images/Logo/Moon.png"
   bio              : "***있는 힘껏 날아올라***<br>***아름답게 피어나라***"
   location         : "South Korea"
-  #email            :
+  #email            : "lelernrn@gmail.com"
   links:
    - label: "포트폴리오"
-     icon: "fab fa-fw fa-notion"
+     icon: "fas fa-fw fa-link"
      url: "https://lelernrn.notion.site/264ca40c4696800eae9bc305e5c47950?source=copy_link"
    - label: "GitHub"
      icon: "fab fa-fw fa-github"
      url: "https://github.com/Unpwe"
    - label: "lelernrn@gmail.com"
      icon: "fas fa-fw fa-envelope-square"
-     url: ""
-    
+     url: "mailto:lelernrn@gmail.com"
+
 
 # Site Footer
 footer:
@@ -129,7 +129,7 @@ footer:
       icon: "fab fa-fw fa-github"
       url: "https://github.com/Unpwe"
     - label: "포트폴리오"
-      icon: "fab fa-fw fa-notion"
+      icon: "fas fa-fw fa-link"
       url: "https://lelernrn.notion.site/264ca40c4696800eae9bc305e5c47950?source=copy_link"
 
 # Reading Files
@@ -248,6 +248,11 @@ jekyll-archives:
     category: /categories/:name/
     tag: /tags/:name/
 
+collections:
+  pages:
+    output: true
+    permalink: /:path/
+
 
 # HTML Compression
 # - https://jch.penibelst.de/
@@ -272,5 +277,10 @@ defaults:
       related: true
       show_date : true
       sidebar_main: true
+      toc: true
+      toc_sticky: true
+      toc_label: 목차
+      toc_icon: "fa-solid fa-list"
+
 
 date_format: "%Y-%m-%d"
