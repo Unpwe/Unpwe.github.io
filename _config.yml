@@ -270,6 +270,7 @@ defaults:
       type: posts
     values:
       layout: single
+      classes: wide  # 전체 포스트에 wide 클래스 적용
       author_profile: true
       read_time: true
       comments: true

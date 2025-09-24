@@ -7,3 +7,38 @@ search: false
 
 @import "minimal-mistakes/skins/{{ site.minimal_mistakes_skin | default: 'default' }}"; // skin
 @import "minimal-mistakes"; // main partials
+
+
+// Author profile 왼쪽 여백 제거
+.sidebar {
+  @media (min-width: 64em) {
+    padding-left: 0 !important;
+    margin-left: 0 !important;
+  }
+}
+
+.author__avatar {
+  @media (min-width: 64em) {
+    margin-left: 0 !important;
+  }
+}
+
+// 전체 페이지 왼쪽 여백도 제거
+.page {
+  @media (min-width: 64em) {
+    padding-left: 0 !important;
+    margin-left: 0 !important;
+  }
+}
+
+.masthead {
+  padding-left: 0 !important;
+  margin-left: 0 !important;
+}
+
+// 컨테이너 전체 여백 제거
+.masthead__inner-wrap,
+.page__footer-wrap {
+  padding-left: 1em;
+  padding-right: 1em;
+}
