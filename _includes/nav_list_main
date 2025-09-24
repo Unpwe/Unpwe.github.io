@@ -20,6 +20,23 @@
                     {% endif %}
                 {% endfor %}
             </ul>
+        <span class="nav__sub-title">QA</span>
+            <ul>
+                <!--category[1].size 로 해당 카테고리를 가진 글의 개수 표시--> 
+                {% for category in site.categories %}
+                    {% if category[0] == "QA" %}
+                        <li><a href="/categories/QA" class="">QA ({{category[1].size}})</a></li>
+                    {% endif %}
+                {% endfor %}
+            </ul>
+            <ul>
+                <!--category[1].size 로 해당 카테고리를 가진 글의 개수 표시--> 
+                {% for category in site.categories %}
+                    {% if category[0] == "Game Testing" %}
+                        <li><a href="/categories/Game Testing" class="">Game Testing ({{category[1].size}})</a></li>
+                    {% endif %}
+                {% endfor %}
+            </ul>
         <span class="nav__sub-title">코딩 테스트</span>
             <!--ul 태그로 같은 카테고리들 모아둔 페이지들 나열-->
             <ul>
