@@ -53,6 +53,15 @@
                     {% endif %}
                 {% endfor %}
             </ul> 
+        <span class="nav__sub-title">알고리즘</span>
+            <!--ul 태그로 같은 카테고리들 모아둔 페이지들 나열-->
+            <ul>
+                {% for category in site.categories %}
+                    {% if category[0] == "Graph" %}
+                        <li><a href="/categories/Graph" class="">그래프 ({{category[1].size}})</a></li>
+                    {% endif %}
+                {% endfor %}
+            </ul>
         <span class="nav__sub-title">게임</span>
             <!--ul 태그로 같은 카테고리들 모아둔 페이지들 나열-->
             <ul>
