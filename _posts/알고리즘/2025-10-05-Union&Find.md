@@ -33,10 +33,11 @@ published: true
 
 **그렇다면 두 그룹이 서로 다른 그룹인지 같은 그룹인지 판단할 때는 어떨까?**    
 [A섬]과 [B섬] 사이에 다리를 건설하고 [C섬]과 [D섬] 사이에도 다리를 건설했다고 치자.   
-시간이 지나 [B섬]과 [C섬] 사이에도 다리가 건설되었다면, **[A섬]과 [D섬]은 이제 같은 그룹인지 어떻게 판단할까?**   
+시간이 지나 [B섬]과 [C섬] 사이에도 다리가 건설되었다면, **[A섬]과 [D섬]은 이제 같은 그룹인지 어떻게 판단할까?**     
+ **또는 [A섬]의 그룹장은 누구일까?**
 
-
-**Union & Find** 알고리즘은 **여러 그룹을 하나로 합치고, 두 원소가 같은 그룹인지 빠르게 확인할 수 있는 알고리즘이다.**
+**Union & Find** 알고리즘은 **여러 그룹을 하나로 합치고, 두 원소가 같은 그룹인지 빠르게 확인할 수 있는 알고리즘이다.**   
+뿐만 아니라, **해당 원소의 루트 그룹장이 누군지도 알 수있다.**
 
 
 <br/>
@@ -55,7 +56,7 @@ int Find(vector<int>* union_list, int num)
     if(num == (*union_list)[num])
         return num;
     else
-        return (*union_list)[num] = Find(union_list, num); // 핵심 코드. 재귀를 리턴하면서 Union 리스트를 갱신함.
+        return (*union_list)[num] = Find(union_list, (*union_list)[num]); // 핵심 코드. 재귀를 리턴하면서 Union 리스트를 갱신함.
 }
 
 
@@ -70,13 +71,14 @@ void Union(vector<int>* union_list, int n1, int n2)
 }
 
 
+
 int main() 
 {
     int group_cnt;
     cout << "그룹의 갯수 입력 : ";
     cin >> group_cnt;
 
-    vector<int> union_list(group_cnt + 1);
+    vector<int> union_list(group_cnt + 1, 0);
 
     for(int i = 0; i <= group_cnt; i++)
         union_list[i] = i; // 각 그룹별로 번호 지정
@@ -85,10 +87,9 @@ int main()
     cout << "입력할 갯수 입력 : ";
     cin >> input_cnt;
 
-    int num1, num2 = 0;
     for(int i = 0; i < input_cnt; i++)
     {
-        int num1= 0, num2 = 0;
+        int num1 = 0, num2 = 0;
         cout << "원소 2개 입력 : ";
         cin >> num1 >> num2;
 
@@ -107,9 +108,10 @@ int main()
 ## 결과
 ![image](/assets/images/알고리즘/Union&Find결과.png)
 
-> **return (*union_list)[num] = Find(union_list, num);**
+> **return (*union_list)[num] = Find(union_list, (*union_list)[num]);**
 
 **재귀적으로 union_list(각 원소의 그룹을 나타내는 리스트)를 갱신하며 동시에 return.**   
+이 때 재귀적으로 호출되는 Find에는 인자로 (*union_list)[num]이 들어간다는 것을 주의하자.
 
 Union 함수는 간단하다.   
 원소를 넣어서 나온 **Find함수로 나온 그룹이 서로 다른 경우** union_list에 그룹을 바꿔주면 된다.   
